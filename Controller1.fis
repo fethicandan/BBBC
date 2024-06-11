@@ -1,0 +1,49 @@
+[System]
+Name='Controller'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='E'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-1.8 -1 0]
+MF2='Z':'trimf',[-1 0 1]
+MF3='P':'trimf',[0 1 1.8]
+
+[Input2]
+Name='dE'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-1.79 -1 -0]
+MF2='Z':'trimf',[-1 0 1]
+MF3='P':'trimf',[0 1 1.8]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=5
+MF1='O1':'constant',[-1]
+MF2='O2':'constant',[-0.5]
+MF3='O3':'constant',[0]
+MF4='O4':'constant',[0.5]
+MF5='O5':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 4 (1) : 1
+3 1, 3 (1) : 1
+3 2, 4 (1) : 1
+3 3, 5 (1) : 1

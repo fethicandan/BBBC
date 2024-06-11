@@ -1,0 +1,59 @@
+[System]
+Name='fis2'
+Type='sugeno'
+Version=3.0
+NumInputs=2
+NumOutputs=1
+NumRules=18
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+TypeReductionMethod='karnikmendel'
+
+[Input1]
+Name='E'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-2 -1 0],[0.2],[0 0]
+MF2='Z':'trimf',[-1 0 1],[0.9],[0 0]
+MF3='P':'trimf',[0 1 2],[0.2],[0 0]
+
+[Input2]
+Name='delE'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-2 -1 0],[0.3],[0 0]
+MF2='Z':'trimf',[-1 0 1],[0.9],[0 0]
+MF3='P':'trimf',[0 1 2],[0.3],[0 0]
+
+[Output1]
+Name='U'
+Range=[-1 1]
+NumMFs=5
+MF1='NB':'constant',[-1]
+MF2='NM':'constant',[-0.5]
+MF3='Z':'constant',[0]
+MF4='PM':'constant',[0.5]
+MF5='PB':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 3 (1) : 1
+1 2, 2 (1) : 1
+2 2, 3 (1) : 1
+3 2, 4 (1) : 1
+1 3, 3 (1) : 1
+2 3, 4 (1) : 1
+3 3, 5 (1) : 1
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 3 (1) : 1
+1 2, 2 (1) : 1
+2 2, 3 (1) : 1
+3 2, 4 (1) : 1
+1 3, 3 (1) : 1
+2 3, 4 (1) : 1
+3 3, 5 (1) : 1
